@@ -1,0 +1,41 @@
+# Unit2: Control Flow / Sal's Shipping Project
+def ground_cost(weight):
+  if weight > 10:
+    rate = 4.75
+  elif weight > 6:
+    rate = 4.00
+  elif weight > 2:
+    rate = 3.00
+  else:
+    rate = 1.50
+  return rate*weight + 20
+
+print(ground_cost(8.4))
+
+def drone_cost(weight):
+  if weight > 10:
+    rate = 14.25
+  elif weight > 6:
+    rate = 12.00
+  elif weight > 2:
+    rate = 9.00
+  else:
+    rate = 4.50
+  return rate*weight
+
+print(drone_cost(1.5))
+
+def cheapest_method(weight):
+  ground = ground_cost(weight)
+  drone = drone_cost(weight)
+  premium_cost = 125.00
+  
+  if ground < drone < premium_cost:
+    return "You should use Ground Shipping; it will cost $" + str(ground)
+  elif drone < premium_cost:
+    return "You should use Drone Shipping; it will cost $" + str(drone)
+  else:
+    return "You should use Premium Shipping; it will cost $125.00"
+
+print(cheapest_method(4.8))
+print(cheapest_method(41.5))
